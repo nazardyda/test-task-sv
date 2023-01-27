@@ -19,14 +19,11 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @ToString
-@Table(name="UsersTable")
-public class User {
+@Table(name="usersTable")
+public class UserEntity {
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column
     private UUID id;
     @Column(name = "name")
@@ -36,7 +33,7 @@ public class User {
     @Column(name = "birthDate")
     private LocalDate birthDate;
 
-    public User(String name, String surname, LocalDate birthDate) {
+    public UserEntity(String name, String surname, LocalDate birthDate) {
         this.name = name;
         this.surname = surname;
         this.birthDate=birthDate;
